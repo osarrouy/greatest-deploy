@@ -1,6 +1,5 @@
 const chalk = require('chalk');
 const { ethers } = require('hardhat');
-const owner = '0x817c5294d8B9B2768Ac2b50691D72f5850C9721B';
 const Batch = {
   Arkhe: 0,
   Drop: 1,
@@ -19,7 +18,6 @@ const deploy = {
   token: async (ctx) => {
     const signers = await ethers.getSigners();
     const Token = new ethers.ContractFactory(GSAT.abi, GSAT.bytecode, signers[0]);
-    // const Token = await ethers.getContractFactory('GSAT');
     ctx.token = await Token.deploy(PROXY_REGISTRY.rinkeby);
     await ctx.token.deployed();
     console.log(`Token deployed at ${chalk.cyan(ctx.token.address)} and arkhe batch minted`);
