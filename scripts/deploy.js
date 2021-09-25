@@ -12,15 +12,14 @@ const PROXY_REGISTRY = {
   mainnet: '0xa5409ec958c83c3f309868babaca7c86dcb077c1',
 };
 
+const address = '0x6cfDB8f0CB7f0799cED4950d8B3ce7D5Eb99F834';
+
 const GSAT = require('../abi/GSAT.json');
 
 const deploy = {
   token: async (ctx) => {
     const signers = await ethers.getSigners();
-    const Token = new ethers.ContractFactory(GSAT.abi, GSAT.bytecode, signers[0]);
-    ctx.token = await Token.deploy(PROXY_REGISTRY.mainnet);
-    await ctx.token.deployed();
-    console.log(`Token deployed at ${chalk.cyan(ctx.token.address)} and arkhe batch minted`);
+    ctx.token = new ethers.Contract(address, GSAT.abi, signers[0]);
     await (await ctx.token.mint(Batch.Drop)).wait();
     console.log('Token drop minted');
     await (await ctx.token.mint(Batch.A)).wait();
