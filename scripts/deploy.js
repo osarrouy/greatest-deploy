@@ -20,8 +20,8 @@ const deploy = {
   token: async (ctx) => {
     const signers = await ethers.getSigners();
     ctx.token = new ethers.Contract(address, GSAT.abi, signers[0]);
-    await (await ctx.token.mint(Batch.Drop)).wait();
-    console.log('Token drop minted');
+    // await (await ctx.token.mint(Batch.Drop)).wait();
+    // console.log('Token drop minted');
     await (await ctx.token.mint(Batch.A)).wait();
     console.log('Token batch A minted');
     await (await ctx.token.mint(Batch.B)).wait();
