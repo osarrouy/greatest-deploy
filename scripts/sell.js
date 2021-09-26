@@ -63,6 +63,7 @@ const main = async () => {
 
       console.log(chalk.green('OK'));
     } catch (e) {
+      console.log(e);
       console.log(chalk.red('KO'));
     }
 
