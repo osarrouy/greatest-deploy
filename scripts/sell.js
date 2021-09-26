@@ -67,7 +67,7 @@ const main = async () => {
       console.log(chalk.red('KO'));
     }
 
-    await sleep(2);
+    await sleep(4);
   }
 
   console.log(chalk.green('\nDutch auction successfully opened !'));
