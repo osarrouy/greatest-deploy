@@ -6,7 +6,8 @@
   "scripts": {
     "deploy": "npx hardhat run --network frame scripts/deploy.js",
     "sell": "npx hardhat run --network frame scripts/sell.js",
-    "drop": "npx hardhat run --network frame scripts/drop.js"
+    "drop": "npx hardhat run --network frame scripts/drop.js",
+    "unlist": "npx hardhat run --network frame scripts/unlist.js"
   },
   "author": "",
   "license": "ISC",
