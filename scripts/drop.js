@@ -360,7 +360,7 @@ const drop = async () => {
 };
 
 const main = async () => {
-  await approve();
+  // await approve();
   await drop();
 };
 
